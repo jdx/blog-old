@@ -15,7 +15,6 @@ ActiveAdmin.register Post do
 
   filter :name
   filter :body
-  filter :description
   filter :post_date
 
   index do
@@ -37,7 +36,6 @@ ActiveAdmin.register Post do
       row :name
       row :tag_list
       row :draft
-      row :description
       row :image do
         image_tag resource.image if resource.image.url
       end
@@ -53,7 +51,6 @@ ActiveAdmin.register Post do
       f.input :body
     end
     f.inputs "Meta information" do
-      f.input :description
       f.input :image, as: :file, hint: (f.template.image_tag(f.object.image.url) if f.object.image?)
       f.input :tag_list, label: 'Tags'
       f.input :post_date, as: :datepicker
