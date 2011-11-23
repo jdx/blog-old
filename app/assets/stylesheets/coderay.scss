@@ -47,14 +47,14 @@
 .CodeRay .oc { color:#40E; font-weight:bold }      /*             oct */
 .CodeRay .of { color:#000; font-weight:bold }      /*    operator_fat */
 .CodeRay .op { }                                   /*    (don't know) */
-.CodeRay .pc { color:#038; font-weight:bold }      /*    pre_constant */
+.CodeRay .predefined-constant { color:#038; font-weight:bold }      /*    pre_constant */
 .CodeRay .pd { color:#369; font-weight:bold }      /*      predefined */
 .CodeRay .pp { color:#579; }                       /*    preprocessor */
 .CodeRay .ps { color:#00C; font-weight:bold }      /*    pseudo_class */
 .CodeRay .pt { color:#074; font-weight:bold }      /*        pre_type */
 .CodeRay .r, .kw  { color:#080; font-weight:bold }
 
-.CodeRay .ke { color: #808; }                      /*             key */
+.CodeRay .keyword { color: #808; }                      /*             key */
 .CodeRay .ke .dl { color: #606; }
 .CodeRay .ke .ch { color: #80f; }
 .CodeRay .vl { color: #088; }                      /*           value */
@@ -65,7 +65,7 @@
 .CodeRay .rx .mod { color:#C2C }
 .CodeRay .rx .fu  { color:#404; font-weight: bold }
 
-.CodeRay .s { background-color:#fff0f0; color: #D20; } /*          string */
+.CodeRay .string { background-color:#fff0f0; color: #D20; } /*          string */
 .CodeRay .s .s { background-color:#ffe0e0 }
 .CodeRay .s .s  .s { background-color:#ffd0d0 }
 .CodeRay .s .k { }
