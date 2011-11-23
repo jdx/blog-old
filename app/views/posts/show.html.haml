@@ -14,7 +14,8 @@
 :javascript
     var disqus_shortname = 'jeffdickey';
     var disqus_identifier = 'post:#{@post.id}';
-    var disqus_url = '#{post_path(@post)}';
+    var disqus_url = '#{post_url(@post)}';
+    var disqus_developer = #{Rails.env.development?};
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
