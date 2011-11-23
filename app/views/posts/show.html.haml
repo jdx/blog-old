@@ -4,12 +4,16 @@
   %meta{ property: "og:title", content: @post }
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.image.url }
+  %meta{ property: "og:url", content: @post.permalink }
 
 %h1= Blog
 #body
   %article
     %span.date= @post.post_date.to_s(:long)
     %h2= @post.name
+    - if @post.image.url
+      %hr
+      = image_tag @post.image
     %hr
     = markdown @post.body
   - if @related_posts.first
