@@ -14,4 +14,6 @@
         %ul
           - for post in month[1]
             %li
+              - if @post.image.url
+                = image_tag @post.image.url(:small_thumb)
               %a{ 'href' => post.permalink }= post
