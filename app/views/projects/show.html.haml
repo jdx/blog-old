@@ -12,7 +12,6 @@
     %hr
     = markdown @project.body
   %hr
-  %h2 React
   .social
     %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => project_path(@project), 'data-text' => @project.name, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
     .fb-like{ 'data-href' => project_path(@project), 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
