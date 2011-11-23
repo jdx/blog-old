@@ -4,6 +4,42 @@
     %title Jeff Dickey's Blog
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    = javascript_include_tag "//platform.twitter.com/widgets.js"
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16475858-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=#{ENV['FACEBOOK_APP_ID']}";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    %meta{ property: "og:site_name", content: "Jeff Dickey's Blog" }
+    %meta{ property: "fb:app_id", content: ENV['FACEBOOK_APP_ID'] }
+    - if content_for? :head
+      = yield :head
+    - else
+      %meta{ property: "og:title", content: "Jeff Dickey's Blog" }
+      %meta{ property: "og:type", content: "website" }
+      %meta{ property: "og:image", content: "http://jeffdickey.info/img/jeff.jpg" }
+      %meta{ property: "og:url", content: "http://blog.jeffdickey.info" }
     = csrf_meta_tags
   %body
+    #fb-root
     = yield
+    %a.twitter-follow-button{ href: "https://twitter.com/dickeytk" }Follow @dickeytk
+    :javascript
+      var disqus_shortname = 'jeffdickey';
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
