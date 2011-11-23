@@ -1,4 +1,4 @@
 - @posts.each do |post|
   %li
-    %a{ 'href' => post_path(post) }= post
-    %a{ 'href' => "#{post_path(post)}#disqus_thread", 'data-disqus-identifier' => "post:#{post.id}" }
+    %a{ 'href' => post.permalink }= post
+    %a{ 'href' => "#{post.permalink}#disqus_thread", 'data-disqus-identifier' => "post:#{post.id}" }

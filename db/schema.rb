@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123003613) do
+ActiveRecord::Schema.define(:version => 20111123034014) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -46,8 +46,20 @@ ActiveRecord::Schema.define(:version => 20111123003613) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-# Could not dump table "posts" because of following StandardError
-#   Unknown type 'url' for column 'thumbnail'
+  create_table "posts", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.string   "thumbnail"
+    t.datetime "datetime"
+    t.boolean  "draft"
+    t.date     "post_date"
+    t.string   "slug"
+  end
+
+  add_index "posts", ["datetime"], :name => "index_posts_on_datetime"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

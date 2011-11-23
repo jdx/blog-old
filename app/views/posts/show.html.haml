@@ -2,19 +2,19 @@
   %meta{ property: "og:title", content: @post }
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.thumbnail }
-  %meta{ property: "og:url", content: post_url(@post) }
+  %meta{ property: "og:url", content: @post.permalink }
   %meta{ property: "og:description", content: @post.description }
 
 = @post.name
 = @post.body
-%a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
-.fb-like{ 'data-href' => post_url(@post), 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
+%a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
+.fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
 #disqus_thread
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 :javascript
     var disqus_shortname = 'jeffdickey';
     var disqus_identifier = 'post:#{@post.id}';
-    var disqus_url = '#{post_url(@post)}';
+    var disqus_url = '#{@post.permalink}';
     var disqus_developer = #{Rails.env.development?};
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

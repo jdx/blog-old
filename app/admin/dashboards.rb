@@ -1,9 +1,10 @@
 ActiveAdmin::Dashboards.build do
   section "Recent Posts" do
-    ul do
-      Post.recent(5).collect do |post|
-        li link_to(post, admin_post_path(post))
+    table_for Post.recent(5).collect do
+      column :name do |post|
+        link_to(post, admin_post_path(post))
       end
+      column :post_date
     end
   end
 end
