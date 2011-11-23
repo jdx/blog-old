@@ -13,7 +13,7 @@
     %h2= @post.name
     - if @post.image.url
       %hr
-      = image_tag @post.image
+      = image_tag @post.image.url(:banner)
     %hr
     = markdown @post.body
   - if @related_posts.first
