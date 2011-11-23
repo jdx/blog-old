@@ -57,6 +57,8 @@ GEM
       warden (~> 1.1)
     erubis (2.7.0)
     eventmachine (0.12.10)
+    exception_notification (2.5.2)
+      actionmailer (>= 3.0.4)
     execjs (1.2.9)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
@@ -155,13 +157,14 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   acts-as-taggable-on
-  coffee-rails (~> 3.1.1)
+  coffee-rails
+  exception_notification
   haml
   jquery-rails
   newrelic_rpm
   pg
-  rails (= 3.1.2)
-  sass-rails (~> 3.1.5.rc.2)
+  rails
+  sass-rails
   sqlite3
   thin
-  uglifier (>= 1.0.3)
+  uglifier

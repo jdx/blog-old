@@ -8,8 +8,7 @@ Blog::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -57,4 +56,19 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'jeffdickey.info'
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
+  config.middleware.use ExceptionNotifier,
+     :email_prefix => "[JeffDickeyBlog] ",
+     :sender_address => %{"notifier" <notifier@jeffdickey.info>},
+     :exception_recipients => %w{exceptions@jeffdickey.info},
 end
