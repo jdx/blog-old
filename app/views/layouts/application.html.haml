@@ -37,13 +37,20 @@
   %body
     #fb-root
     #sidebar
+      = image_tag 'jeff.jpg', class: 'jeff'
       %h1 Jeff Dickey
       %nav
         %ul
           %li= link_to_unless_current "About", '/'
-          %li= link_to_unless_current "Blog", '/blog'
+          - if request.url =~ /blog/
+            %li Blog
+          - else
+            %li= link_to "Blog", '/blog'
+          %li= link_to_unless_current "Skills", '/skills'
           %li= link_to_unless_current "Resume", '/resume'
           %li= link_to_unless_current "Projects", '/projects'
+          - if admin_user_signed_in?
+            %li= link_to_unless_current "Admin", '/admin'
       %span.email me@jeffdickey.info
     #content
       = yield

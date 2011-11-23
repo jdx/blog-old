@@ -11,6 +11,7 @@ $font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvet
 body
   font-family: $font_a
   font-weight: 300
+  font-size: 18px
 
 #sidebar
   position: absolute
@@ -31,8 +32,10 @@ body
   nav
     text-align: right
     li
-      margin: 10px 25px
+      margin-right: 25px
       color: $highlight
+      cursor: default
+      line-height: 1.4
       a
         color: #ccc
         text-decoration: none
@@ -46,6 +49,11 @@ body
     text-align: center
     color: #EAEDE9
     font-family: $font_b
+  .jeff
+    position: absolute
+    top: 200px
+    left: 50px
+    border: 1px solid $color_d
 
 #content
   position: absolute
@@ -54,13 +62,20 @@ body
   left: 400px
   right: 0
   padding-top: 100px
-  padding-left: 50px
+  padding-left: 75px
   h1
     color: $color_c
     font-size: 70px
     font-family: $font_b
     text-shadow: 0 1px 0 #000
     margin-bottom: 30px
+
+#body
+  width: 480px
+  text-align: justify
+  line-height: 1.4
+  p
+    margin-bottom: 1.4em
 
 ::selection
   background: $highlight
