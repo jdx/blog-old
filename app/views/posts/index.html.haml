@@ -16,4 +16,6 @@
             %li
               - if post.image.url
                 = image_tag post.image.url(:small_thumb)
-              %a{ 'href' => post.permalink }= post
+                %a{ 'href' => post.permalink }= post
+              - else
+                %a.no-image{ 'href' => post.permalink }= post
