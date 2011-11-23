@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   end
 
   def permalink
-    "http://#{Rails.configuration.host}/#{post_date.year}/#{post_date.month}/#{post_date.day}/#{to_param}"
+    "http://#{Rails.configuration.host}/blog/#{post_date.year}/#{post_date.month}/#{post_date.day}/#{to_param}"
   end
 
   private

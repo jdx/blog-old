@@ -1,7 +1,9 @@
+- content_for :title do
+  %title Jeff Dickey | #{ @post.name }
 - content_for :head do
   %meta{ property: "og:title", content: @post }
   %meta{ property: "og:type", content: "article" }
-  %meta{ property: "og:image", content: @post.thumbnail }
+  %meta{ property: "og:image", content: @post.image.url }
   %meta{ property: "og:url", content: @post.permalink }
   %meta{ property: "og:description", content: @post.description }
 

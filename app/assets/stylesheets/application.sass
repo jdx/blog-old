@@ -1,5 +1,70 @@
 @import reset
 
+$highlight: #FF5335
+$color_a: #B29C85
+$color_b: #306E73
+$color_c: #3B424C
+$color_d: #1D181F
+$font_a: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+$font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+
 body
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-family: $font_a
   font-weight: 300
+
+#sidebar
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  width: 400px
+  background-color: $color_c
+  padding-top: 100px
+  border-right: 3px solid $color_a
+  h1
+    font-size: 70px
+    color: #EAEDE9
+    text-align: center
+    text-shadow: 0 1px 0 #000
+    margin-bottom: 30px
+    font-family: $font_b
+  nav
+    text-align: right
+    li
+      margin: 10px 25px
+      color: $highlight
+      a
+        color: #ccc
+        text-decoration: none
+        text-shadow: 0 1px 0 #000
+  .email
+    position: absolute
+    bottom: 10px
+    left: 0
+    right: 0
+    display: block
+    text-align: center
+    color: #EAEDE9
+    font-family: $font_b
+
+#content
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 400px
+  right: 0
+  padding-top: 100px
+  padding-left: 50px
+  h1
+    color: $color_c
+    font-size: 70px
+    font-family: $font_b
+    text-shadow: 0 1px 0 #000
+    margin-bottom: 30px
+
+::selection
+  background: $highlight
+  text-shadow: 0
+::-moz-selection
+  background: $highlight
+  text-shadow: 0

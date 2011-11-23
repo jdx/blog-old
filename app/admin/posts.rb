@@ -22,6 +22,9 @@ ActiveAdmin.register Post do
     column "Name", sortable: :name do |post|
       link_to post.name, [:admin, post]
     end
+    column :image do |post|
+      image_tag post.thumbnail.url(:small_thumb)
+    end
     column :draft
     column :post_date
   end
@@ -35,7 +38,12 @@ ActiveAdmin.register Post do
       row :tag_list
       row :draft
       row :description
-      row :body
+      row :image do
+        image_tag resource.image if resource.image.url
+      end
+      row :body do
+        Redcarpet.new(resource.body).to_html.html_safe
+      end
     end
     active_admin_comments
   end
@@ -44,7 +52,7 @@ ActiveAdmin.register Post do
       f.input :name
       f.input :description
       f.input :body
-      f.input :thumbnail, as: :file, hint: (f.template.image_tag(f.object.thumbnail.url) if f.object.thumbnail?)
+      f.input :image, as: :file, hint: (f.template.image_tag(f.object.image.url) if f.object.image?)
     end
     f.inputs "Meta information" do
       f.input :tag_list, label: 'Tags'

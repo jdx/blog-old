@@ -13,6 +13,7 @@ gem 'rmagick'
 gem 'activeadmin'
 gem 'acts-as-taggable-on'
 gem 'haml'
+gem 'redcarpet'
 
 group :development do
   gem 'sqlite3'

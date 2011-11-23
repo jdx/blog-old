@@ -4,7 +4,12 @@ Blog::Application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
   end
 
-  match "/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+  resources :projects
 
-  root :to => 'posts#index'
+  match "/blog/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+
+  match 'blog' => 'posts#index'
+  match 'resume' => 'static#resume'
+
+  root :to => 'static#root'
 end

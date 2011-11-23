@@ -1,7 +1,10 @@
 !!!
 %html
   %head
-    %title Jeff Dickey's Blog
+    - if content_for? :title
+      = yield :title
+    - else
+      %title Jeff Dickey
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
@@ -33,8 +36,17 @@
     = csrf_meta_tags
   %body
     #fb-root
-    = yield
-    %a.twitter-follow-button{ href: "https://twitter.com/dickeytk" }Follow @dickeytk
+    #sidebar
+      %h1 Jeff Dickey
+      %nav
+        %ul
+          %li= link_to_unless_current "About", '/'
+          %li= link_to_unless_current "Blog", '/blog'
+          %li= link_to_unless_current "Resume", '/resume'
+          %li= link_to_unless_current "Projects", '/projects'
+      %span.email me@jeffdickey.info
+    #content
+      = yield
     :javascript
       var disqus_shortname = 'jeffdickey';
       (function () {
