@@ -1,0 +1,10 @@
+- content_for :title do
+  %title Jeff Dickey | Projects
+
+%h1 Projects
+#body
+  #projects
+    %ul
+      - for project in @projects
+        %li
+          %a{ 'href' => project_path(project) }= project

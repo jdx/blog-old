@@ -1,5 +1,5 @@
 - content_for :title do
-  %title Jeff Dickey | #{ @post.name }
+  %title= @post.name
 - content_for :head do
   %meta{ property: "og:title", content: @post }
   %meta{ property: "og:type", content: "article" }
@@ -30,7 +30,7 @@
   %hr
   %h2 React
   .social
-    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
+    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-text' => @post.name, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
     .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
   #disqus_thread
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

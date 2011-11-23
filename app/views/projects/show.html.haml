@@ -1,0 +1,30 @@
+- content_for :title do
+  %title= @project.name
+- content_for :head do
+  %meta{ property: "og:title", content: @project }
+  %meta{ property: "og:type", content: "article" }
+  %meta{ property: "og:url", content: project_path(@project) }
+
+%h1= @project.name
+#body
+  %article
+    %span.url= link_to @project.url, @project.url
+    %hr
+    = markdown @project.body
+  %hr
+  %h2 React
+  .social
+    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => project_path(@project), 'data-text' => @project.name, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
+    .fb-like{ 'data-href' => project_path(@project), 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
+  #disqus_thread
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  :javascript
+      var disqus_shortname = 'jeffdickey';
+      var disqus_identifier = 'project:#{@project.id}';
+      var disqus_url = '#{project_path(@project)}';
+      var disqus_developer = #{Rails.env.development?};
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
