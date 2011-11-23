@@ -40,12 +40,15 @@
       %nav
         %ul
           %li= link_to_unless_current "About", '/'
-          - if request.url =~ /^.*blog.*$/
+          - if request.url.include? 'blog'
             %li= link_to "Blog", '/blog', class: 'current'
           - else
             %li= link_to "Blog", '/blog'
           %li= link_to_unless_current "Skills", '/skills'
-          %li= link_to_unless_current "Projects", '/projects'
+          - if request.url.include? 'projects'
+            %li= link_to "Projects", '/projects', class: 'current'
+          - else
+            %li= link_to "Projects", '/projects'
           %li= link_to_unless_current "Resume", 'http://careers.stackoverflow.com/dickey'
           %li= link_to_unless_current "LinkedIn", 'http://linkedin.com/in/dickeytk'
           %li= link_to_unless_current "GitHub", 'http://github.com/dickeytk'
