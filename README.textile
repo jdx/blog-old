@@ -1,0 +1,2 @@
+h1. Jeff Dickey's Blog
+Not much to see here, just your standard ol' run of the mill Rails CMS!

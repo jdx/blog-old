@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title Jeff Dickey's Blog
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = yield

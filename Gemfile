@@ -1,7 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.2'
+gem 'thin'
+gem 'pg'
 gem 'newrelic_rpm'
+
+gem 'activeadmin'
+gem 'acts-as-taggable-on'
+gem 'haml'
 
 group :development do
   gem 'sqlite3'
