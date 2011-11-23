@@ -1,4 +1,5 @@
 @import reset
+@import coderay
 
 $highlight: #FF5335
 $color_a: #B29C85
@@ -76,9 +77,9 @@ html, body
 
 article
   p
-    margin-bottom: 0.5em
+    margin: 1em 0
   ol, ul
-    margin-bottom: 0.5em
+    margin: 1em 0
   ol
     list-style-type: decimal
     margin-left: 25px
@@ -158,3 +159,17 @@ article
 a
   color: $highlight
   text-decoration: none
+
+code, .code
+  font-family: Monaco, fixed
+  padding: 5px
+  background-color: #eee
+  border: 1px solid #ddd
+  border-radius: 3px
+  box-shadow: rgba(0,0,0,0.07) 0 1px 2px inset
+  font-size: 12px
+  display: block
+  margin: 1em 0
+  text-align: left
+  overflow-x: auto
+  white-space: nowrap

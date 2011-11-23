@@ -1,5 +1,5 @@
 - content_for :title do
-  %title= @project.name
+  %title #{@project.name} by Jeff Dickey
 - content_for :head do
   %meta{ property: "og:title", content: @project }
   %meta{ property: "og:type", content: "article" }

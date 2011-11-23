@@ -14,6 +14,8 @@ gem 'activeadmin'
 gem 'acts-as-taggable-on'
 gem 'haml'
 gem 'redcarpet'
+gem 'coderay'
+gem 'htmlentities'
 
 group :development do
   gem 'sqlite3'
