@@ -23,7 +23,7 @@ ActiveAdmin.register Post do
       link_to post.name, [:admin, post]
     end
     column :image do |post|
-      image_tag post.thumbnail.url(:small_thumb)
+      image_tag post.image.url(:small_thumb) if post.image.url
     end
     column :draft
     column :post_date

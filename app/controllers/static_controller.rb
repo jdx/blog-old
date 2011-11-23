@@ -2,9 +2,7 @@ class StaticController < ApplicationController
   def root
   end
 
-  def resume
+  def skills
   end
 
-  def resume
-  end
 end

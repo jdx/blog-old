@@ -52,14 +52,13 @@ ActiveRecord::Schema.define(:version => 20111123043713) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.datetime "datetime"
     t.boolean  "draft"
     t.date     "post_date"
     t.string   "slug"
     t.string   "image"
   end
 
-  add_index "posts", ["datetime"], :name => "index_posts_on_datetime"
+  add_index "posts", ["post_date"], :name => "index_posts_on_post_date"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -1,6 +1,17 @@
+- content_for :title do
+  %title Jeff Dickey | Blog
+
 %h1 Blog
 #body
-  - @posts.each do |post|
-    %li
-      %a{ 'href' => post.permalink }= post
-      %a{ 'href' => "#{post.permalink}#disqus_thread", 'data-disqus-identifier' => "post:#{post.id}" }
+  - if @tag
+    %h2 Posts tagged with "#{@tag}"
+  #posts
+    - @post_months.each do |month|
+      .date-group
+        .date-label
+          .month= month[0].strftime("%b")
+          .year= month[0].year
+        %ul
+          - for post in month[1]
+            %li
+              %a{ 'href' => post.permalink }= post

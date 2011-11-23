@@ -7,13 +7,31 @@
   %meta{ property: "og:url", content: @post.permalink }
   %meta{ property: "og:description", content: @post.description }
 
-%h1 Blog
+%h1= Blog
 #body
   %article
-  %h2= @post.name
-  = @post.body
-  %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
-  .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
+    %span.date= @post.post_date.to_s(:long)
+    %h2= @post.name
+    %hr
+    = markdown @post.body
+  - if @related_posts.first
+    %hr
+    %h2 Related Posts
+    %ul
+      - for post in @related_posts
+        %li
+          =link_to "#{post}", post.permalink
+          = "- " + post.post_date.to_s(:long)
+  %hr
+  %h2 Tags
+  .tags
+    - for tag in @post.tag_list
+      = link_to tag, "/blog/tags/#{tag}"
+  %hr
+  %h2 React
+  .social
+    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
+    .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
   #disqus_thread
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   :javascript

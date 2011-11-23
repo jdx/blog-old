@@ -1,10 +1,7 @@
 !!!
 %html
   %head
-    - if content_for? :title
-      = yield :title
-    - else
-      %title Jeff Dickey
+    = yield :title
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
@@ -36,6 +33,7 @@
     = csrf_meta_tags
   %body
     #fb-root
+    #sidebar-bg
     #sidebar
       = image_tag 'jeff.jpg', class: 'jeff'
       %h1 Jeff Dickey
@@ -43,7 +41,7 @@
         %ul
           %li= link_to_unless_current "About", '/'
           - if request.url =~ /blog/
-            %li Blog
+            %li= link_to "Blog", '/blog', class: 'current'
           - else
             %li= link_to "Blog", '/blog'
           %li= link_to_unless_current "Skills", '/skills'
@@ -54,11 +52,3 @@
       %span.email me@jeffdickey.info
     #content
       = yield
-    :javascript
-      var disqus_shortname = 'jeffdickey';
-      (function () {
-          var s = document.createElement('script'); s.async = true;
-          s.type = 'text/javascript';
-          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());

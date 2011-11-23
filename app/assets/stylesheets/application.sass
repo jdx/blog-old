@@ -8,20 +8,22 @@ $color_d: #1D181F
 $font_a: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 $font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 
-body
+html, body
   font-family: $font_a
   font-weight: 300
   font-size: 18px
 
-#sidebar
-  position: absolute
-  top: 0
-  bottom: 0
-  left: 0
-  width: 400px
+#sidebar-bg
+  position: fixed
   background-color: $color_c
-  padding-top: 100px
   border-right: 3px solid $color_a
+  width: 400px
+  height: 100%
+  z-index: -1
+#sidebar
+  float: left
+  width: 400px
+  padding-top: 100px
   h1
     font-size: 70px
     color: #EAEDE9
@@ -35,16 +37,16 @@ body
       margin-right: 25px
       color: $highlight
       cursor: default
-      line-height: 1.4
+      line-height: 1.5
       a
         color: #ccc
-        text-decoration: none
         text-shadow: 0 1px 0 #000
+      .current
+        color: $highlight
   .email
-    position: absolute
+    position: fixed
     bottom: 10px
-    left: 0
-    right: 0
+    left: 130px
     display: block
     text-align: center
     color: #EAEDE9
@@ -56,11 +58,7 @@ body
     border: 1px solid $color_d
 
 #content
-  position: absolute
-  top: 0
-  bottom: 0
-  left: 400px
-  right: 0
+  float: left
   padding-top: 100px
   padding-left: 75px
   h1
@@ -70,12 +68,72 @@ body
     text-shadow: 0 1px 0 #000
     margin-bottom: 30px
 
+article
+  p
+    margin-bottom: 0.5em
+  ol, ul
+    margin-bottom: 0.5em
+  ol
+    list-style-type: decimal
+    margin-left: 25px
+  ul
+    list-style-type: square
+    margin-left: 20px
+  .date
+    display: block
+    font-size: 18px
+    float: right
+    margin-left: 20px
+
 #body
   width: 480px
   text-align: justify
-  line-height: 1.4
-  p
-    margin-bottom: 1.4em
+  line-height: 1.5
+  .social
+    text-align: right
+    margin: 20px 0
+    .twitter-share-button
+      padding-top: 3px
+      float: left
+    .fb-like
+      float: left
+  hr
+    margin: 2em 0
+    clear: both
+    border: 0
+    border-top: 1px solid $color_a
+  h2
+    color: $color_c
+    font-size: 18px
+    font-family: $font_b
+    margin-bottom: 12px
+
+#posts
+  .date-group
+    position: relative
+    margin: 3em
+    margin-left: 80px
+    .date-label
+      position: absolute
+      top: 0
+      left: -80px
+      border: 2px solid $color_c
+      text-align: center
+      width: 50px
+      height: 50px
+      .month
+        height: 25px
+        color: $color_d
+        background-color: $color_a
+      .year
+        height: 25px
+        color: white
+        background-color: $color_c
+
+#dsq-content
+  font-size: 14px
+  h3, #dsq-pagination
+    font-size: 12px
 
 ::selection
   background: $highlight
@@ -83,3 +141,7 @@ body
 ::-moz-selection
   background: $highlight
   text-shadow: 0
+
+a
+  color: $highlight
+  text-decoration: none

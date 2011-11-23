@@ -6,10 +6,11 @@ Blog::Application.routes.draw do
 
   resources :projects
 
-  match "/blog/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+  match "/blog/tags/:tag" => "posts#tag"
+  match "/blog/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
 
   match 'blog' => 'posts#index'
-  match 'resume' => 'static#resume'
+  match 'skills' => 'static#skills'
 
   root :to => 'static#root'
 end
