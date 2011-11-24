@@ -17,5 +17,6 @@
               %a{ 'href' => post.permalink }
                 - if post.image.url
                   = image_tag post.image.url(:small_thumb)
+                  %span= post
                 - else
                   %span.no-image= post
