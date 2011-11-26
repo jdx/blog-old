@@ -11,11 +11,11 @@
   %article
     %h1= link_to @post, @post.permalink
     %span.date= @post.post_date.to_s(:long)
-    %h2 By Jeff Dickey
+    %h2.tags
+      - @post.tag_list[0..2].each do |tag|
+        = link_to tag.titleize, "/tags/#{tag}"
     - if @post.image.url
-      %hr
-      = image_tag @post.image.url(:banner), alt: nil
-    %hr
+      = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
     = markdown @post.body
   - if admin_user_signed_in?
     %hr

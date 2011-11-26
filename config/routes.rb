@@ -6,13 +6,14 @@ Blog::Application.routes.draw do
 
   resources :projects
 
-  match "/blog/tags/:tag" => "posts#tag"
   match "/blog/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
 
   match 'about' => 'static#about'
   match 'archive' => 'posts#archive'
   match 'blog' => redirect('/', permanent: true)
   match 'skills' => 'static#skills'
+
+  match "/tags/:tag" => "posts#tag"
 
   match "/:id" => "posts#show"
 

@@ -3,6 +3,12 @@ class PostsController < ApplicationController
     @posts = Post.published.limit(5)
   end
 
+  def tag
+    @tag = params[:tag]
+    @posts = Post.published.tagged_with(@tag)
+    render :index
+  end
+
   def archive
     @post_months = Post.published.group_by { |p| p.post_date.beginning_of_month }
   end
