@@ -3,8 +3,6 @@
 
 %h1 Blog
 #body
-  - if @tag
-    %h2 Posts tagged with "#{@tag}"
   #posts
     - @post_months.each do |month|
       .date-group
