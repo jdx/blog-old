@@ -17,6 +17,6 @@ class PostsController < ApplicationController
     @on_blog = true
     @post = Post.find_by_slug(params[:id])
     @post ||= Post.find(params[:id])
-    @related_posts = @post.find_related_tags
+    @related_posts = @post.find_related_tags.where(draft: false).limit(5)
   end
 end

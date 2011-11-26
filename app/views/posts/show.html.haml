@@ -19,7 +19,7 @@
   - if admin_user_signed_in?
     %hr
     = link_to "Edit", admin_post_path(@post)
-  - if @related_posts.first
+  - if @related_posts.length != 0
     %hr
     %h2 Related Posts
     %ul
