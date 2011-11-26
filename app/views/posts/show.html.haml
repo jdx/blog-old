@@ -28,11 +28,6 @@
           =link_to "#{post}", post.permalink
           = "- " + post.post_date.to_s(:long)
   %hr
-  %h2 Tags
-  .tags
-    - for tag in @post.tag_list
-      = link_to tag, "/blog/tags/#{tag}"
-  %hr
   .social
     %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-text' => @post.name, 'data-count' => "horizontal", 'data-via' => "dickeytk" } Tweet
     .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
