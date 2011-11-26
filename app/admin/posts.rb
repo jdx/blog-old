@@ -24,6 +24,7 @@ ActiveAdmin.register Post do
     column :image do |post|
       image_tag post.image.url(:small_thumb) if post.image.url
     end
+    column :tag_list
     column :draft
     column :post_date
   end
