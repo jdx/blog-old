@@ -27,14 +27,16 @@ html, body
   width: 400px
   padding-top: 100px
   h1
-    font-size: 70px
-    color: #EAEDE9
+    font-size: 40px
     text-align: right
     text-shadow: 0 1px 0 #000
     margin-bottom: 30px
     margin-right: 25px
     font-family: $font_b
     font-weight: bold
+    line-height: 1.2
+    a
+      color: #EAEDE9
   nav
     text-align: right
     li
@@ -68,35 +70,14 @@ html, body
   padding-left: 75px
   width: 549px
   h1
-    color: $color_c
-    font-size: 70px
+    line-height: 1.2
+    font-size: 40px
     font-family: $font_b
     font-weight: bold
     text-shadow: 0 1px 0 #000
     margin-bottom: 30px
-
-article
-  p
-    margin: 1em 0
-  ol, ul
-    margin: 1em 0
-  ol
-    list-style-type: decimal
-    margin-left: 25px
-  ul
-    list-style-type: square
-    margin-left: 20px
-  em
-    font-style: italic
-  strong
-    font-weight: bold
-    font-family: $font_b
-  .date
-    display: block
-    float: right
-    margin-left: 20px
-  .gist
-    font-size: 12px
+    a
+      color: $color_c
 
 #body
   line-height: 1.5
@@ -119,25 +100,54 @@ article
     font-family: $font_b
     font-weight: bold
     margin-bottom: 12px
+    cursor: default
+  .date
+    display: block
+    float: right
+    margin-left: 20px
+    cursor: default
+  p
+    margin: 1em 0
+  ol, ul
+    margin: 1em 0
+  ol
+    list-style-type: decimal
+    margin-left: 25px
+  ul
+    list-style-type: square
+    margin-left: 20px
+  em
+    font-style: italic
+  strong
+    font-weight: bold
+    font-family: $font_b
+  .gist
+    font-size: 12px
+  .readmore
+    display: block
+    margin: 20px 0
 
-#posts
+#archive
+  line-height: 1.5
   .date-group
     position: relative
     margin: 3em
     margin-left: 80px
     li
       margin: 20px 0
-      span
-        margin-left: 5px
-        vertical-align: middle
-        width: 300px
-        display: inline-block
-      img
-        width: 100px
-        height: 100px
-        vertical-align: middle
-      span.no-image
-        margin-left: 110px
+      a
+        display: block
+        span
+          margin-left: 5px
+          vertical-align: middle
+          width: 300px
+          display: inline-block
+        img
+          width: 100px
+          height: 100px
+          vertical-align: middle
+        span.no-image
+          margin-left: 110px
     .date-label
       position: absolute
       top: 0

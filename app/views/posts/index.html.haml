@@ -1,20 +1,15 @@
 - content_for :title do
   %title Blog by Jeff Dickey
 
-%h1 Blog
 #body
-  #posts
-    - @post_months.each do |month|
-      .date-group
-        .date-label
-          .month= month[0].strftime("%b")
-          .year= month[0].year
-        %ul
-          - for post in month[1]
-            %li
-              %a{ 'href' => post.permalink }
-                - if post.image.url
-                  = image_tag post.image.url(:medium_thumb), alt: nil
-                  %span= post
-                - else
-                  %span.no-image= post
+  - for post in @posts
+    %h1= link_to post, post.permalink
+    %span.date= post.post_date.to_s(:long)
+    %h2 By Jeff Dickey
+    - if post.image.url
+      %hr
+      = image_tag post.image.url(:banner), alt: nil
+    %hr
+    = markdown(post.body).split(/<\/p>/).first
+    = link_to "Read more...", post.permalink, class: 'readmore'
+    %hr

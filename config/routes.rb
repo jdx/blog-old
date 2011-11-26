@@ -9,10 +9,12 @@ Blog::Application.routes.draw do
   match "/blog/tags/:tag" => "posts#tag"
   match "/blog/:year/:month/:day/:id" => "posts#show", :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
 
-  match 'blog' => 'posts#index'
+  match 'about' => 'static#about'
+  match 'archive' => 'posts#archive'
+  match 'blog' => redirect('/', permanent: true)
   match 'skills' => 'static#skills'
 
   match "/:id" => "posts#show"
 
-  root :to => 'static#root'
+  root :to => 'posts#index'
 end

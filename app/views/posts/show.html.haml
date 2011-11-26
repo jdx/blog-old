@@ -5,12 +5,13 @@
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.image.url }
   %meta{ property: "og:url", content: @post.permalink }
+  %meta{ property: "og:description", content: strip_tags(@post.body.split(/<\/p>/).first) }
 
-%h1= Blog
 #body
   %article
+    %h1= link_to @post, @post.permalink
     %span.date= @post.post_date.to_s(:long)
-    %h2= @post.name
+    %h2 By Jeff Dickey
     - if @post.image.url
       %hr
       = image_tag @post.image.url(:banner), alt: nil

@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  def root
+  def about
   end
 
   def skills

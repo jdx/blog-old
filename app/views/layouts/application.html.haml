@@ -38,14 +38,11 @@
     #sidebar-bg
     #sidebar
       = image_tag 'jeff.jpg', class: 'jeff'
-      %h1 Jeff Dickey
+      %h1= link_to "Jeff Dickey", '/'
       %nav
         %ul
-          %li= link_to_unless_current "About", '/'
-          - if @on_blog
-            %li= link_to "Blog", '/blog', class: 'current'
-          - else
-            %li= link_to "Blog", '/blog'
+          %li= link_to_unless_current "Archive", '/archive'
+          %li= link_to_unless_current "About", '/about'
           %li= link_to_unless_current "Skills", '/skills'
           - if request.url.include? 'projects'
             %li= link_to "Projects", '/projects', class: 'current'
