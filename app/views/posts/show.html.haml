@@ -13,7 +13,7 @@
     %h2= @post.name
     - if @post.image.url
       %hr
-      = image_tag @post.image.url(:banner)
+      = image_tag @post.image.url(:banner), alt: nil
     %hr
     = markdown @post.body
   - if admin_user_signed_in?
