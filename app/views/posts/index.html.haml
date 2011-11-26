@@ -2,6 +2,9 @@
   %title Blog by Jeff Dickey
 
 #body
+  - if @tag
+    %h1= link_to @tag.titleize
+    %hr
   - for post in @posts
     %h1= link_to post, post.permalink
     %span.date= post.post_date.to_s(:long)
