@@ -56,6 +56,7 @@
           %li= link_to_unless_current "GitHub", 'http://github.com/dickeytk'
           - if admin_user_signed_in?
             %li= link_to_unless_current "Admin", '/admin'
+            %li= link_to_unless_current "Add New Post", '/admin/posts/new'
       %span.email me@jeffdickey.info
     #content
       = yield

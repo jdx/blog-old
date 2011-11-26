@@ -27,7 +27,7 @@
 .CodeRay .er { color:#F00; background-color:#FAA } /*           error */
 .CodeRay .ex { color:#C00; font-weight:bold }      /*       exception */
 .CodeRay .fl { color:#60E; font-weight:bold }      /*           float */
-.CodeRay .fu { color:#06B; font-weight:bold }      /*          method */
+.CodeRay .function { color:#06B; font-weight:bold }      /*          function */
 .CodeRay .gv { color:#d70; font-weight:bold }      /* global_variable */
 .CodeRay .hx { color:#058; font-weight:bold }      /*             hex */
 .CodeRay .integer { color:#00D; font-weight:bold }       /*         integer */
@@ -41,7 +41,7 @@
 
 .CodeRay .im { color:#f00; }                       /*       important */
 .CodeRay .in { color:#B2B; font-weight:bold }      /*     interpreted */
-.CodeRay .iv { color:#33B }                        /* instance_variable */
+.CodeRay .instance-variable { color:#33B }                        /* instance_variable */
 .CodeRay .la { color:#970; font-weight:bold }      /*           label */
 .CodeRay .lv { color:#963 }                        /*  local_variable */
 .CodeRay .oc { color:#40E; font-weight:bold }      /*             oct */
@@ -76,7 +76,7 @@
 .CodeRay .sh .k { }
 .CodeRay .sh .dl { color:#161 }
 
-.CodeRay .sy { color:#A60 }                        /*          symbol */
+.CodeRay .symbol { color:#A60 }                        /*          symbol */
 .CodeRay .sy .k { color:#A60 }
 .CodeRay .sy .dl { color:#630 }
 

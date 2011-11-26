@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   before_update :create_slug, uniqueness: true
 
   validates :name, presence: true, uniqueness: true
-  validates :body, presence: true, uniqueness: true
+  validates :body, presence: true
   validates :post_date, presence: true
 
   acts_as_taggable
