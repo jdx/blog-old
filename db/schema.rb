@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123103825) do
+ActiveRecord::Schema.define(:version => 20111126011257) do
 
   create_table "active_admin_comments", :force => true do |t|
-    t.integer  "resource_id",   :null => false
-    t.string   "resource_type", :null => false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "namespace"
+    t.integer   "resource_id",   :null => false
+    t.string    "resource_type", :null => false
+    t.integer   "author_id"
+    t.string    "author_type"
+    t.text      "body"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "namespace"
   end
 
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
@@ -29,18 +29,18 @@ ActiveRecord::Schema.define(:version => 20111123103825) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "admin_users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "email",                                 :default => "", :null => false
+    t.string    "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string    "reset_password_token"
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",                         :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
@@ -57,25 +57,27 @@ ActiveRecord::Schema.define(:version => 20111123103825) do
     t.string   "image"
   end
 
-  add_index "posts", ["post_date"], :name => "index_posts_on_post_date"
+  add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
 
   create_table "projects", :force => true do |t|
-    t.string   "name"
-    t.string   "slug"
-    t.string   "url"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "slug"
+    t.string    "url"
+    t.text      "body"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
+  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context"
-    t.datetime "created_at"
+    t.integer   "tag_id"
+    t.integer   "taggable_id"
+    t.string    "taggable_type"
+    t.integer   "tagger_id"
+    t.string    "tagger_type"
+    t.string    "context"
+    t.timestamp "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"

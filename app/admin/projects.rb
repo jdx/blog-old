@@ -29,6 +29,7 @@ ActiveAdmin.register Project do
   form do |f|
     f.inputs "Content" do
       f.input :name
+      f.input :slug
       f.input :url
       f.input :body
     end

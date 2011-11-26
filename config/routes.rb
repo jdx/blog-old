@@ -12,5 +12,7 @@ Blog::Application.routes.draw do
   match 'blog' => 'posts#index'
   match 'skills' => 'static#skills'
 
+  match "/:id" => "posts#show"
+
   root :to => 'static#root'
 end
