@@ -3,8 +3,8 @@ class Post < ActiveRecord::Base
   before_create :create_slug, uniqueness: true
   before_update :create_slug, uniqueness: true
 
-  validates :name, presence: true
-  validates :body, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :body, presence: true, uniqueness: true
   validates :post_date, presence: true
 
   acts_as_taggable
@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    self.slug
+    "#{self.id}-#{self.slug}"
   end
 
   def self.recent(count)
@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   end
 
   def permalink
-    "http://#{Rails.configuration.host}/#{to_param}"
+    "http://#{Rails.configuration.host}/#{self.slug}"
   end
 
   private

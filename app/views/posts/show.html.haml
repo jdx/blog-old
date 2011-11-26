@@ -16,6 +16,9 @@
       = image_tag @post.image.url(:banner)
     %hr
     = markdown @post.body
+  - if admin_user_signed_in?
+    %hr
+    = link_to "Edit", admin_post_path(@post)
   - if @related_posts.first
     %hr
     %h2 Related Posts
@@ -45,6 +48,3 @@
           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
-  - if admin_user_signed_in?
-    %hr
-    = link_to "Edit", admin_post_path(@post)

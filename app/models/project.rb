@@ -8,6 +8,6 @@ class Project < ActiveRecord::Base
   end
 
   def to_param
-    "#{ self.slug }"
+    "#{ self.id }-#{ self.slug }"
   end
 end

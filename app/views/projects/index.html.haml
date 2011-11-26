@@ -7,4 +7,4 @@
     %ul
       - for project in @projects
         %li
-          %a{ 'href' => project_path(project) }= project
+          %a{ 'href' => "/projects/#{project.slug}" }= project
