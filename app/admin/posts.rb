@@ -52,6 +52,7 @@ ActiveAdmin.register Post do
       f.input :body
     end
     f.inputs "Meta information" do
+      f.input :slug
       f.input :image, as: :file, hint: (f.template.image_tag(f.object.image.url) if f.object.image?)
       f.input :tag_list, label: 'Tags'
       f.input :post_date, as: :datepicker

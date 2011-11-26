@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 
-  before_create :create_slug, uniqueness: true
-  before_update :create_slug, uniqueness: true
+  before_create :create_slug
 
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
@@ -32,6 +31,6 @@ class Post < ActiveRecord::Base
   private
 
   def create_slug
-    self.slug = self.name.parameterize
+    self.slug = self.name.parameterize if self.slug.blank?
   end
 end
