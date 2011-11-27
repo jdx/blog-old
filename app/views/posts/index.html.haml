@@ -13,6 +13,10 @@
         = link_to tag.titleize, "/tags/#{tag}"
     - if post.image.url
       = image_tag post.image.url(:banner), alt: nil, class: 'banner'
-    = markdown(post.body).split(/<\/p>/).first
+    - split_body = markdown(post.body).split(/<\/p>/)
+    - if split_body.first.length < 100
+      = split_body.first + split_body.second
+    - else
+      = split_body.first
     = link_to "Read more...", post.permalink, class: 'readmore'
     %hr
