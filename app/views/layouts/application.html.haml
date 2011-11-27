@@ -3,7 +3,7 @@
   %head
     = yield :title
     = stylesheet_link_tag    "application"
-    = stylesheet_link_tag    "iphone", media: 'only screen and (max-device-width: 480px)'
+    = stylesheet_link_tag    "narrow", media: 'only screen and (max-width: 1024px)'
     = javascript_include_tag "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
     :javascript
