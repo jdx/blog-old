@@ -130,6 +130,15 @@ html, body
   strong
     font-weight: bold
     font-family: $font_b
+  blockquote
+    padding-left: 50px
+    position: relative
+  blockquote:before
+    content: '\201C'
+    position: absolute
+    top: -40px
+    left: 0
+    font-size: 100px
   .gist
     font-size: 12px
   .readmore
