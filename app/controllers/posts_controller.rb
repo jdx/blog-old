@@ -18,4 +18,10 @@ class PostsController < ApplicationController
     @post ||= Post.find(params[:id])
     @related_posts = @post.find_related_tags.published.limit(5)
   end
+
+  def redirect
+    @post = Post.find_by_slug(params[:id])
+    @post ||= Post.find(params[:id])
+    redirect_to @post.permalink, status: 301
+  end
 end
