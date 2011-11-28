@@ -2,10 +2,14 @@
 %html{ itemscope: '', itemtype: 'http://schema.org/Article' }
   %head
     = yield :title
+
     = stylesheet_link_tag    "application"
     = stylesheet_link_tag    "narrow", media: 'only screen and (max-width: 1024px)'
     = javascript_include_tag "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
+
+    = auto_discovery_link_tag :rss, root_url
+
     :javascript
       // GA
       var _gaq = _gaq || [];

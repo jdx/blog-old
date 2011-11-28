@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.published.limit(5)
+
+    respond_to do |format|
+      format.rss { render layout: false }
+      format.html { render }
+    end
   end
 
   def tag
