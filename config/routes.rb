@@ -16,6 +16,7 @@ Blog::Application.routes.draw do
   match "/tags/:tag" => "posts#tag"
 
   match 'sitemap' => 'sitemap#index'
+  match 'posts.rss' => redirect('/posts.xml', permanent: true)
   match 'posts' => 'posts#index'
 
   match "/:id" => "posts#show"
