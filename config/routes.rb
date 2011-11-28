@@ -15,6 +15,8 @@ Blog::Application.routes.draw do
 
   match "/tags/:tag" => "posts#tag"
 
+  match 'sitemap' => 'sitemap#index'
+
   match "/:id" => "posts#show"
 
   root :to => 'posts#index'
