@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.published.limit(5)
+    @posts = Post.where('draft = ? and post_date <= ?', 'f', Time.zone.today)
 
     respond_to do |format|
       format.rss { render layout: false }
@@ -10,18 +10,20 @@ class PostsController < ApplicationController
 
   def tag
     @tag = params[:tag]
-    @posts = Post.published.tagged_with(@tag)
+    @posts = Post.where('draft = ? and post_date <= ?', 'f', Time.zone.today).tagged_with(@tag)
     render :index
   end
 
   def archive
-    @post_months = Post.published.group_by { |p| p.post_date.beginning_of_month }
+    @post_months = Post
+      .where('draft = ? and post_date <= ?', 'f', Time.zone.today)
+      .group_by { |p| p.post_date.beginning_of_month }
   end
 
   def show
     @post = Post.find_by_slug(params[:id])
     @post ||= Post.find(params[:id])
-    @related_posts = @post.find_related_tags.published.limit(5)
+    @related_posts = @post.find_related_tags.where('draft = ? and post_date <= ?', 'f', Time.zone.today).limit(5)
   end
 
   def redirect

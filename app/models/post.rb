@@ -10,7 +10,6 @@ class Post < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   default_scope order: 'post_date desc'
-  scope :published, where('draft = ? and post_date <= ?', 'f', Time.zone.today)
 
   def to_s
     name

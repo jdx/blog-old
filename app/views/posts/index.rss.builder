@@ -8,7 +8,12 @@ xml.rss :version => "2.0" do
     for post in @posts
       xml.item do
         xml.title post
-        xml.description post.body
+        split_body = markdown(post.body).split(/<\/p>/)
+        if split_body.first.length < 100
+          xml.description = strip_tags(split_body.first + split_body.second)
+        else
+          xml.description = strip_tags(split_body.first)
+        end
         xml.pubDate post.post_date.to_s(:rfc822)
         xml.link post.permalink
         xml.guid post.permalink

@@ -5,9 +5,14 @@
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.image.url }
   %meta{ property: "og:url", content: @post.permalink }
-  %meta{ property: "og:description", content: strip_tags(@post.body.split(/<\/p>/).first) }
+  - split_body = markdown(@post.body).split(/<\/p>/)
+  - if split_body.first.length < 100
+    %meta{ property: "og:description", content: strip_tags(split_body.first + split_body.second) }
+    %meta{ itemprop: "description", content: strip_tags(split_body.first + split_body.second) }
+  - else
+    %meta{ property: "og:description", content: strip_tags(split_body.first) }
+    %meta{ itemprop: "description", content: strip_tags(split_body.first) }
   %meta{ itemprop: "name", content: @post }
-  %meta{ itemprop: "description", content: strip_tags(@post.body.split(/<\/p>/).first) }
   %meta{ itemprop: "image", content: @post.image.url }
 
 #body
