@@ -1,11 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.where('draft = ? and post_date <= ?', 'f', Time.zone.today)
-
-    respond_to do |format|
-      format.rss { render layout: false }
-      format.html { render }
-    end
   end
 
   def tag
