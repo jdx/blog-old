@@ -9,6 +9,7 @@ gem 'exception_notification'
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'httparty'
 
 gem 'activeadmin'
 gem 'acts-as-taggable-on'
