@@ -22,6 +22,7 @@ xml.feed xmlns: 'http://www.w3.org/2005/Atom' do
       end
       xml.content type: :html do
         xml.text! "<h1>#{post}</h1>"
+        xml.text! "<img src='#{post.image.url}' />"
         xml.text! markdown(post.body)
       end
       split_body = markdown(post.body).split(/<\/p>/)
