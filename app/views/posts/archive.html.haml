@@ -1,19 +1,20 @@
 - content_for :title do
   %title Jeff Dickey's Archive
 
-%h1 Archive
-#archive
-  - @post_months.each do |month|
-    .date-group
-      .date-label
-        .month= month[0].strftime("%b")
-        .year= month[0].year
-      %ul
-        - for post in month[1]
-          %li
-            %a{ 'href' => post.permalink }
-              - if post.image.url
-                = image_tag post.image.url(:medium_thumb), alt: nil
-                %span= post
-              - else
-                %span.no-image= post
+#body
+  %h1 Archive
+  #archive
+    - @post_months.each do |month|
+      .date-group
+        .date-label
+          .month= month[0].strftime("%b")
+          .year= month[0].year
+        %ul
+          - for post in month[1]
+            %li
+              %a{ 'href' => post.permalink }
+                - if post.image.url
+                  = image_tag post.image.url(:medium_thumb), alt: nil
+                  %span= post
+                - else
+                  %span.no-image= post
