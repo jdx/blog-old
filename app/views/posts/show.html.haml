@@ -25,11 +25,13 @@
     - if @post.image.url
       = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
     = markdown @post.body
-  :javascript
-    google_ad_client = "ca-pub-9155398064416893";
-    google_ad_slot = "7185960311";
-    google_ad_width = 336;
-    google_ad_height = 280;
+  .ad
+    :javascript
+      google_ad_client = "ca-pub-9155398064416893";
+      google_ad_slot = "7185960311";
+      google_ad_width = 336;
+      google_ad_height = 280;
+    = javascript_include_tag "http://pagead2.googlesyndication.com/pagead/show_ads.js"
   - if admin_user_signed_in?
     %hr
     = link_to "Edit", admin_post_path(@post)
