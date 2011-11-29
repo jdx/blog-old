@@ -37,7 +37,7 @@ $font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvet
       bottom: 10px
       left: 10px
       top: initial
-    h1
+    > h1
       position: absolute
       font-size: 36px
       top: 10px
@@ -48,8 +48,9 @@ $font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvet
       font-family: $font_b
       font-weight: bold
       font-size: 20px
-      li
-        margin-right: 10px
+      > ul
+        > li
+          margin-right: 10px
 
   #content
     float: none
@@ -65,13 +66,13 @@ $font_b: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvet
       margin-top: 10px
       font-size: 36px
 
-  #archive .date-group li a
-    img
+  #archive > .date-group > li > a
+    > img
       width: 50px
       height: 50px
-    span
+    > span
       width: 110px
-    span.no-image
+    > span.no-image
       margin-left: 60px
 
   .social
