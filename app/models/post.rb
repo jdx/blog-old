@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 
   before_create :create_slug
+  before_update :create_slug
 
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
