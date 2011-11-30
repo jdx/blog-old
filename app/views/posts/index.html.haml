@@ -3,14 +3,14 @@
 
 #body
   - if @tag
-    %h1= link_to @tag.titleize
+    %h1= link_to @tag
     %hr
   - for post in @posts
     %h1= link_to post, post.permalink
     %span.date= post.post_date.to_s(:long)
     %h2.tags
       - post.tag_list[0..2].each do |tag|
-        = link_to tag.titleize, "/tags/#{tag}"
+        = link_to tag, "/tags/#{tag}"
     - if post.image.url
       = image_tag post.image.url(:banner), alt: nil, class: 'banner'
     - split_body = markdown(post.body).split(/<\/p>/)
