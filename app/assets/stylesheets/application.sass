@@ -23,6 +23,7 @@ html, body
   height: 100%
   z-index: -1
 #sidebar
+  position: relative
   float: left
   width: 400px
   padding-top: 100px
@@ -61,9 +62,13 @@ html, body
     font-weight: bold
   .jeff
     position: absolute
-    top: 180px
-    left: 65px
+    top: 10px
+    right: 20px
     border: 1px solid $color_d
+  .feed
+    position: fixed
+    bottom: 10px
+    left: 10px
 
 #content
   float: left
@@ -104,9 +109,16 @@ html, body
     clear: both
     border: 0
     border-top: 1px solid $color_a
+  .tags:before
+    content: url(image-path('tag.png'))
+    height: 32px
+    width: 32px
+    vertical-align: middle
+    display: inline-block
   .tags > a
-    margin: 0 5px 0 0
     color: $color_c
+    margin-right: 5px
+    vertical-align: middle
   h2
     color: $color_c
     font-size: 18px

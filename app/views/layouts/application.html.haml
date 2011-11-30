@@ -52,6 +52,7 @@
     #sidebar
       = image_tag 'jeff.jpg', class: 'jeff'
       %h1= link_to "Jeff Dickey", '/'
+      = link_to image_tag('rss.png'), 'http://feeds.feedburner.com/jeffdickey', class: 'feed'
       %nav
         %ul
           %li= link_to_unless_current "Archive", '/archive'
