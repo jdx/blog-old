@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  caches_action :index, :show, expires_in: 10.minutes
+
   def index
     @posts = Post.where('draft = ? and post_date <= ?', 'f', Time.zone.today)
   end
