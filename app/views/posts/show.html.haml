@@ -5,8 +5,8 @@
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.image.url }
   %meta{ property: "og:url", content: @post.permalink }
-  - split_body = markdown(@post.body).split(/<\/p>/)
-  - if split_body.first.length < 100
+  - split_body = @post.body_html.split(/<\/p>/)
+  - if strip_tags(split_body.first).length < 120
     %meta{ property: "og:description", content: strip_tags(split_body.first + split_body.second) }
     %meta{ itemprop: "description", content: strip_tags(split_body.first + split_body.second) }
   - else
@@ -24,7 +24,7 @@
         = link_to tag, "/tags/#{tag}"
     - if @post.image.url
       = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
-    = markdown @post.body
+    = @post.body_html
   .ad
     :javascript
       google_ad_client = "ca-pub-9155398064416893";

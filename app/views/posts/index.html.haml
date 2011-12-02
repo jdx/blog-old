@@ -13,7 +13,7 @@
         = link_to tag, "/tags/#{tag}"
     - if post.image.url
       = image_tag post.image.url(:banner), alt: nil, class: 'banner'
-    - split_body = markdown(post.body).split(/<\/p>/)
+    - split_body = post.body_html.split(/<\/p>/)
     - if strip_tags(split_body.first).length < 120
       = split_body.first + split_body.second
     - else

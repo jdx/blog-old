@@ -25,6 +25,7 @@ ActiveAdmin.register Post do
       image_tag post.image.url(:small_thumb) if post.image.url
     end
     column :tag_list
+    column :word_count
     column :draft
     column :post_date
   end
@@ -38,6 +39,7 @@ ActiveAdmin.register Post do
       row :tag_list
       row :draft
       row :commenting
+      row :word_count
       row :image do
         image_tag resource.image if resource.image.url
       end
