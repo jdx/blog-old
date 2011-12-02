@@ -37,6 +37,7 @@ ActiveAdmin.register Post do
       row :name
       row :tag_list
       row :draft
+      row :commenting
       row :image do
         image_tag resource.image if resource.image.url
       end
@@ -57,6 +58,7 @@ ActiveAdmin.register Post do
       f.input :tag_list, label: 'Tags'
       f.input :post_date, as: :datepicker
       f.input :draft
+      f.input :commenting, as: :select, collection: ['disqus', 'livefyre']
     end
     f.buttons
   end

@@ -49,14 +49,25 @@
     .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
     .gp
       %g:plusone{ size: 'medium' }
-  #disqus_thread
-  :javascript
-      var disqus_shortname = 'jeffdickey';
-      var disqus_identifier = 'post:#{@post.id}';
-      var disqus_url = '#{@post.permalink}';
-      var disqus_developer = #{Rails.env.development?};
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
+    .linkedin
+      = javascript_include_tag "http://platform.linkedin.com/in.js"
+      %script{ 'type' => "IN/Share", 'data-url' => "v", 'data-counter' => "right" }
+  - if @post.commenting == 'livefyre'
+    = javascript_include_tag 'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'
+    :javascript
+      var fyre = LF({
+          site_id: 293384,
+          article_id: #{@post.id}
+      });
+  - else
+    #disqus_thread
+    :javascript
+        var disqus_shortname = 'jeffdickey';
+        var disqus_identifier = 'post:#{@post.id}';
+        var disqus_url = '#{@post.permalink}';
+        var disqus_developer = #{Rails.env.development?};
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();

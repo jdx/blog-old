@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
   validates :post_date, presence: true
+  validates :commenting, presence: true
 
   acts_as_taggable
   mount_uploader :image, ImageUploader
