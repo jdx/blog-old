@@ -51,7 +51,7 @@
       %g:plusone{ size: 'medium' }
     .linkedin
       = javascript_include_tag "http://platform.linkedin.com/in.js"
-      %script{ 'type' => "IN/Share", 'data-url' => "v", 'data-counter' => "right" }
+      %script{ 'type' => "IN/Share", 'data-url' => @post.permalink, 'data-counter' => "right" }
   - if @post.commenting == 'livefyre'
     = javascript_include_tag 'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'
     :javascript
