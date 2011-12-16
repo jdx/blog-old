@@ -21,6 +21,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_slug(params[:id])
     @post ||= Post.find(params[:id])
+    if @post.draft and !admin_user_signed_in?
+      raise ActionController::RoutingError.new('Not Found')
+    end
     @related_posts = @post.find_related_tags.where('draft = ? and post_date <= ?', 'f', Time.zone.today).limit(5)
   end
 
