@@ -64,6 +64,7 @@
           - else
             %li= link_to "Projects", '/projects'
           %li= link_to_unless_current "Resume", 'http://careers.stackoverflow.com/dickey', target: '_blank'
+          %li= link_to_unless_current "PDF Resume", 'http://pdfcrowd.com/careers.stackoverflow.com/dickey?use_print_media=1&pdf_name=jeffdickey', target: '_blank'
           %li= link_to_unless_current "LinkedIn", 'http://linkedin.com/in/dickeytk'
           %li= link_to_unless_current "GitHub", 'http://github.com/dickeytk'
           - if admin_user_signed_in?
