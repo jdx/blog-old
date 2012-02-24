@@ -23,9 +23,9 @@ xml.feed xmlns: 'http://www.w3.org/2005/Atom' do
       xml.content type: :html do
         xml.text! "<h1>#{post}</h1>"
         xml.text! "<img src='#{post.image.url}' />"
-        xml.text! post.body_html
+        xml.text! markdown(post.body)
       end
-      split_body = post.body_html.split(/<\/p>/)
+      split_body = markdown(post.body).split(/<\/p>/)
       if strip_tags(split_body.first).length < 120
         xml.summary strip_tags(split_body.first + split_body.second)
       else

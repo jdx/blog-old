@@ -12,12 +12,6 @@ class PostsController < ApplicationController
     render :index
   end
 
-  def archive
-    @post_months = Post
-      .where('draft = ? and post_date <= ?', 'f', Time.zone.today)
-      .group_by { |p| p.post_date.beginning_of_month }
-  end
-
   def show
     @post = Post.find_by_slug(params[:id])
     @post ||= Post.find(params[:id])

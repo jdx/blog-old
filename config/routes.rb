@@ -9,7 +9,6 @@ Blog::Application.routes.draw do
   match "/blog/:year/:month/:day/:id" => 'posts#redirect', :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
 
   match 'about' => 'static#about'
-  match 'archive' => 'posts#archive'
   match 'blog' => redirect('/', permanent: true)
   match 'skills' => 'static#skills'
 
