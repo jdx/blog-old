@@ -5,7 +5,7 @@
   %meta{ property: "og:type", content: "article" }
   %meta{ property: "og:image", content: @post.image.url }
   %meta{ property: "og:url", content: @post.permalink }
-  - split_body = @post.body_html.split(/<\/p>/)
+  - split_body = markdown(@post.body).split(/<\/p>/)
   - if strip_tags(split_body.first).length < 120
     %meta{ property: "og:description", content: strip_tags(split_body.first + split_body.second) }
     %meta{ itemprop: "description", content: strip_tags(split_body.first + split_body.second) }
@@ -24,7 +24,7 @@
         = link_to tag, "/tags/#{tag}"
     - if @post.image.url
       = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
-    = @post.body_html
+    = markdown(@post.body)
   - if admin_user_signed_in?
     %hr
     = link_to "Edit", edit_admin_post_path(@post)

@@ -44,7 +44,7 @@ ActiveAdmin.register Post do
         image_tag resource.image if resource.image.url
       end
       row :body do
-        Redcarpet.new(resource.body).to_html.html_safe
+        markdown resource.body
       end
     end
     active_admin_comments

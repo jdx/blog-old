@@ -5,6 +5,7 @@ gem 'thin'
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'exception_notification'
+gem 'heroku'
 
 gem 'fog'
 gem 'carrierwave'
@@ -20,6 +21,7 @@ gem 'htmlentities'
 
 group :development do
   gem 'sqlite3'
+  gem 'taps'
 end
 
 group :assets do
