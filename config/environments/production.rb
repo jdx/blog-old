@@ -62,12 +62,12 @@ Blog::Application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'jeffdickey.info'
+    :domain         => 'dickey.xxx'
   }
   ActionMailer::Base.delivery_method = :smtp
 
   config.middleware.use ExceptionNotifier,
      :email_prefix => "[JeffDickeyBlog] ",
-     :sender_address => %{"notifier" <notifier@jeffdickey.info>},
-     :exception_recipients => %w{exceptions@jeffdickey.info},
+     :sender_address => %{"notifier" <jeff@dickey.xxx>},
+     :exception_recipients => %w{jeff@dickey.xxx},
 end

@@ -7,7 +7,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
 
-    = auto_discovery_link_tag :atom, 'http://jeffdickey.info/posts.xml'
+    = auto_discovery_link_tag :atom, 'http://dickey.xxx/posts.xml'
 
     :javascript
       // GA
@@ -44,8 +44,8 @@
     - else
       %meta{ property: "og:title", content: "Jeff Dickey's Blog" }
       %meta{ property: "og:type", content: "website" }
-      %meta{ property: "og:image", content: "http://jeffdickey.info/img/jeff.jpg" }
-      %meta{ property: "og:url", content: "http://blog.jeffdickey.info" }
+      %meta{ property: "og:image", content: "http://dickey.xxx/img/jeff.jpg" }
+      %meta{ property: "og:url", content: "http://dickey.xxx" }
     = csrf_meta_tags
   %body
     #fb-root
@@ -64,10 +64,10 @@
             %li= link_to "Projects", '/projects'
           %li= link_to_unless_current "Resume", 'http://careers.stackoverflow.com/dickey', target: '_blank'
           %li= link_to_unless_current "LinkedIn", 'http://linkedin.com/in/dickeytk'
-          %li= link_to_unless_current "GitHub", 'http://github.com/dickeytk'
+          %li= link_to_unless_current "GitHub", 'http://github.com/dickeyxxx'
           - if admin_user_signed_in?
             %li= link_to_unless_current "Admin", '/admin'
             %li= link_to_unless_current "Add New Post", '/admin/posts/new'
-      %span.email me@jeffdickey.info
+      %span.email jeff@dickey.xxx
     #content
       = yield
