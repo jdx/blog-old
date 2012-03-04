@@ -20,7 +20,18 @@ gem 'htmlentities'
 
 group :development do
   gem 'sqlite3'
+  gem 'guard-spork'
+  gem 'guard-cucumber'
+  gem 'ruby_gntp'
   gem 'taps'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'launchy'
 end
 
 group :assets do
