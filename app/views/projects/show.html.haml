@@ -10,7 +10,7 @@
   %article
     %span.url= link_to @project.url, @project.url
     %hr
-    = @project.body_html
+    = markdown(@project.body)
   - if admin_user_signed_in?
     %hr
     = link_to "Edit", admin_project_path(@project)
