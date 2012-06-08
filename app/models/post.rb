@@ -30,8 +30,8 @@ class Post < ActiveRecord::Base
     self.order('created_at desc').limit(count)
   end
 
-  def permalink
-    "http://#{Rails.configuration.host}/#{self.slug}"
+  def permalink(host=Rails.configuration.host)
+    "http://#{host}/#{self.slug}"
   end
 
   private

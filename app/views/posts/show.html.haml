@@ -17,7 +17,7 @@
 
 #body
   %article
-    %h1= link_to @post, @post.permalink
+    %h1= link_to @post, @post.permalink("#{request.host}:#{request.port}")
     %span.date= @post.post_date.to_s(:long)
     %h2.tags
       - @post.tag_list[0..2].each do |tag|
@@ -34,7 +34,7 @@
     %ul
       - for post in @related_posts
         %li
-          =link_to "#{post}", post.permalink
+          =link_to "#{post}", post.permalink("#{request.host}:#{request.port}")
           = "- " + post.post_date.to_s(:long)
   %hr
   .social

@@ -6,7 +6,7 @@
     %h1= link_to @tag
     %hr
   - for post in @posts
-    %h1= link_to post, post.permalink
+    %h1= link_to post, post.permalink("#{request.host}:#{request.port}")
     %span.date= post.post_date.to_s(:long)
     %h2.tags
       - post.tag_list[0..2].each do |tag|
@@ -18,5 +18,5 @@
       = split_body.first + split_body.second
     - else
       = split_body.first
-    = link_to "Read more...", post.permalink, class: 'readmore'
+    = link_to "Read more...", post.permalink("#{request.host}:#{request.port}"), class: 'readmore'
     %hr
