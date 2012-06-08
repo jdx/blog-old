@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails'
-gem 'thin'
 gem 'pg'
 gem 'exception_notification'
 gem 'heroku'
+gem 'unicorn'
 
 gem 'fog'
 gem 'carrierwave'
@@ -24,6 +24,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'ruby_gntp'
   gem 'taps'
+  gem 'thin'
 end
 
 group :test do
