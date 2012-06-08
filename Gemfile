@@ -10,6 +10,7 @@ gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'httparty'
+gem 'squeel'
 
 gem 'activeadmin'
 gem 'acts-as-taggable-on'

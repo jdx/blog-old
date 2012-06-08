@@ -14,6 +14,8 @@ class Post < ActiveRecord::Base
 
   default_scope order: 'post_date desc'
 
+  scope :published, -> { where{(draft == false) & (post_date <= Time.zone.today)} }
+
   def to_s
     name
   end

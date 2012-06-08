@@ -9,3 +9,7 @@ end
 When /^there is a post named "([^"]*)" scheduled to be posted tomorrow$/ do |name|
   FactoryGirl.create(:post, name: name, post_date: Date.tomorrow)
 end
+
+When /^I visit the sitemap$/ do
+  visit "/sitemap.xml"
+end
