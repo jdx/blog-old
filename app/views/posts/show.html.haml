@@ -25,6 +25,7 @@
     - if @post.image.url
       = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
     = markdown(@post.body)
+    %p - xxx
   - if admin_user_signed_in?
     %hr
     = link_to "Edit", edit_admin_post_path(@post)
