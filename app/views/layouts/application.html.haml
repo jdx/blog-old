@@ -3,9 +3,12 @@
   %head
     = yield :title
 
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Brawler&subset=latin"
+    = stylesheet_link_tag    "//fonts.googleapis.com/css?family=Brawler&subset=latin"
     = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "//coderwall.com/stylesheets/jquery.coderwall.css"
+    = javascript_include_tag "application"
     = javascript_include_tag "//platform.twitter.com/widgets.js"
+    = javascript_include_tag "//coderwall.com/javascripts/jquery.coderwall.js"
 
     = auto_discovery_link_tag :atom, 'http://dickey.xxx/posts.xml'
 
