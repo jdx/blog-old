@@ -73,6 +73,7 @@
       = link_to image_tag('rss.png'), 'http://feeds.feedburner.com/jeffdickey', class: 'feed'
       %nav
         %ul
+          %li= link_to "Let's grab a beer!!!", 'http://letsgrababeer.com/'
           %li= link_to_unless_current "About", '/about'
           %li= link_to_unless_current "Skills", '/skills'
           - if request.url.include? 'projects'
