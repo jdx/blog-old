@@ -73,7 +73,7 @@
       = link_to image_tag('rss.png'), 'http://feeds.feedburner.com/jeffdickey', class: 'feed'
       %nav
         %ul
-          %li= link_to "Let's grab a beer!!!", 'http://letsgrababeer.com/'
+          %li= link_to "Let's grab a beer!", 'http://letsgrababeer.com/'
           %li= link_to_unless_current "About", '/about'
           %li= link_to_unless_current "Skills", '/skills'
           - if request.url.include? 'projects'
@@ -81,9 +81,9 @@
           - else
             %li= link_to "Projects", '/projects'
           %li= link_to "Resume", 'http://careers.stackoverflow.com/dickey', target: '_blank'
-          %li= link_to "LinkedIn", 'http://linkedin.com/in/dickeytk'
+          %li= link_to "Facebook", 'http://facebook.com/dickeyj'
+          %li= link_to "LinkedIn", 'http://linkedin.com/in/dickeyxxx'
           %li= link_to "GitHub", 'http://github.com/dickeyxxx'
-          %li= link_to "NSFW", 'http://nsfw.dickey.xxx'
           - if admin_user_signed_in?
             %li= link_to_unless_current "Admin", '/admin'
             %li= link_to_unless_current "Add New Post", '/admin/posts/new'
