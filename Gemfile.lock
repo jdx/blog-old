@@ -175,7 +175,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.5.2)
     netrc (0.7.4)
-    newrelic_rpm (3.3.5)
+    newrelic_rpm (3.4.1)
     nokogiri (1.5.5)
     orm_adapter (0.0.7)
     pg (0.13.2)
