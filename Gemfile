@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rails'
 gem 'pg'
 gem 'exception_notification'
-gem 'heroku'
 gem 'unicorn'
 
 gem 'fog'
