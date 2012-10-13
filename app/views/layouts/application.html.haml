@@ -52,6 +52,21 @@
         po.src = 'https://apis.google.com/js/plusone.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
+      var GoSquared = {};
+      GoSquared.acct = "GSN-054192-K";
+      (function(w){
+        function gs(){
+          w._gstc_lt = +new Date;
+          var d = document, g = d.createElement("script");
+          g.type = "text/javascript";
+          g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+          var s = d.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(g, s);
+        }
+        w.addEventListener ?
+          w.addEventListener("load", gs, false) :
+          w.attachEvent("onload", gs);
+      })(window);
 
     %meta{ name: "viewport", content: "user-scalable=no, width=device-width, initial-scale=1.0" }
     %meta{ property: "og:site_name", content: "Jeff Dickey's Blog" }
