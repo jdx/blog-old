@@ -1,6 +1,6 @@
 xml.instruct! :xml, version: "1.0", encoding: 'utf-8'
 xml.feed xmlns: 'http://www.w3.org/2005/Atom' do
-  xml.title "Jeff Dickey's personal blog"
+  xml.title "dickey.xxx"
   xml.link href: posts_url(format: :xml), rel: :self
   xml.link href: root_url
   xml.id root_url
@@ -18,7 +18,7 @@ xml.feed xmlns: 'http://www.w3.org/2005/Atom' do
       xml.updated post.post_date.strftime "%Y-%m-%dT%H:%M:%SZ"
       xml.author do
         xml.name "Jeff Dickey"
-        xml.email "me@jeffdickey.info"
+        xml.email "jeff@dickey.xxx"
       end
       xml.content type: :html do
         xml.text! "<h1>#{post}</h1>"
