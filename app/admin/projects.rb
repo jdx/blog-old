@@ -21,7 +21,7 @@ ActiveAdmin.register Project do
       row :name
       row :url
       row :body do
-        Redcarpet.new(resource.body).to_html.html_safe
+        markdown resource.body
       end
     end
     active_admin_comments
