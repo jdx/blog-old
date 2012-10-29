@@ -19,6 +19,7 @@ gem 'coderay'
 gem 'htmlentities'
 
 group :development do
+  gem 'awesome_print'
   gem 'sqlite3'
   gem 'guard-spork'
   gem 'guard-cucumber'
