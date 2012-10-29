@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def check_domain
-    redirect_to "http://dickeyxxx.com#{request.fullpath}", status: :moved_permanently if request.host == 'jeffdickey.info'
+    redirect_to "http://dickey.xxx#{request.fullpath}", status: :moved_permanently if request.host == 'jeffdickey.info'
   end
 
 end
