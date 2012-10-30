@@ -72,5 +72,5 @@ Blog::Application.configure do
   config.middleware.use ExceptionNotifier,
      :email_prefix => "[JeffDickeyBlog] ",
      :sender_address => %{"notifier" <jeff@dickey.xxx>},
-     :exception_recipients => %w{jeff@dickey.xxx},
+     :exception_recipients => %w{jeff@dickey.xxx}
 end
