@@ -97,9 +97,10 @@
           - else
             %li= link_to "Projects", '/projects'
           %li= link_to "Resume", 'http://careers.stackoverflow.com/dickey', target: '_blank'
-          %li= link_to "Facebook", 'http://facebook.com/dickeyj'
-          %li= link_to "LinkedIn", 'http://linkedin.com/in/dickeyxxx'
-          %li= link_to "GitHub", 'http://github.com/dickeyxxx'
+          %li= link_to "Facebook", 'https://facebook.com/dickeyj'
+          %li= link_to "Twitter", 'https://twitter.com/dickeyxxx'
+          %li= link_to "LinkedIn", 'https://linkedin.com/in/dickeyxxx'
+          %li= link_to "GitHub", 'https://github.com/dickeyxxx'
           - if admin_user_signed_in?
             %li= link_to_unless_current "Admin", '/admin'
             %li= link_to_unless_current "Add New Post", '/admin/posts/new'
