@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
   config.fog_directory = ENV['S3_BUCKET']
   if Rails.env.production?
     config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
-    config.asset_host = 'http://content.jeffdickey.info'
+    config.asset_host = 'http://d3u6t3wj2rw73g.cloudfront.net'
   end
 end
 if Rails.env.test? or Rails.env.cucumber?
