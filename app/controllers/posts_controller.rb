@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def tag
     @tag = params[:tag]
-    @posts = Post.published.tagged_with(@tag)
+    @posts = Post.published.tagged_with(@tag).order('post_date desc')
     render :index
   end
 
