@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/heroku/rails_log_stdout.git
+  revision: 01b5bcc572e3baed1618f4068920dd83bd491fb2
+  specs:
+    rails_log_stdout (0.0.1)
+
+GIT
   remote: git://github.com/rails/sass-rails.git
   revision: aa9737b943095f3ce3f7ab0b4319a62518139c38
   specs:
@@ -262,6 +268,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rails (~> 4.0.0.rc.1)
+  rails_log_stdout!
   redcarpet
   rmagick
   rspec
