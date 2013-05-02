@@ -7,9 +7,6 @@ class TagRestructure < ActiveRecord::Migration
       post.tags = tags + [tag["name"]]
       post.save!
     end
-    Post.find_each do |p|
-      ap p.tags
-    end
   end
 
   def down
