@@ -9,12 +9,11 @@ class Post < ActiveRecord::Base
   validates :post_date, presence: true
   validates :commenting, presence: true
 
-  acts_as_taggable
   mount_uploader :image, ImageUploader
 
-  default_scope order: 'post_date desc'
+  scope :published, -> { where(draft: false).where('post_date <= ?', Time.zone.today) }
 
-  scope :published, -> { where{(draft == false) & (post_date <= Time.zone.today)} }
+  scope :tagged_with, -> (tag) { where('tags @> ARRAY[?]::varchar(255)[]', tag) }
 
   def to_s
     name
@@ -34,6 +33,10 @@ class Post < ActiveRecord::Base
 
   def permalink(host=Rails.configuration.host)
     "http://#{host}/#{self.slug}"
+  end
+
+  def related
+    Post.published.where('tags && ARRAY[?]::varchar(255)[]', tags).where.not(id: id).limit(5).order('post_date desc')
   end
 
   private

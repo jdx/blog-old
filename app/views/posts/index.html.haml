@@ -9,7 +9,7 @@
     %h1= link_to post, post.permalink("#{request.host}:#{request.port}")
     %span.date= post.post_date.to_s(:long)
     %h2.tags
-      - post.tag_list[0..2].each do |tag|
+      - post.tags[0..2].each do |tag|
         = link_to tag, "/tags/#{tag}"
     - if post.image.url
       = image_tag post.image.url(:banner), alt: nil, class: 'banner'

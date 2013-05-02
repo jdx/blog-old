@@ -69,8 +69,5 @@ Blog::Application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
 
-  config.middleware.use ExceptionNotifier,
-     :email_prefix => "[JeffDickeyBlog] ",
-     :sender_address => %{"notifier" <jeff@dickey.xxx>},
-     :exception_recipients => %w{jeff@dickey.xxx}
+  config.eager_load = true
 end

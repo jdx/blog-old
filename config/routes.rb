@@ -1,24 +1,21 @@
 Blog::Application.routes.draw do
-  unless ARGV.join.include? 'assets:precompile'
-    ActiveAdmin.routes(self)
-    devise_for :admin_users, ActiveAdmin::Devise.config
-  end
+  devise_for :admin_users
 
   resources :projects
 
-  match "/blog/:year/:month/:day/:id" => 'posts#redirect', :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
+  get "/blog/:year/:month/:day/:id" => 'posts#redirect', :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
 
-  match 'about' => 'static#about'
-  match 'blog' => redirect('/', permanent: true)
-  match 'skills' => 'static#skills'
+  get 'about' => 'static#about'
+  get 'blog' => redirect('/', permanent: true)
+  get 'skills' => 'static#skills'
 
-  match "/tags/:tag" => "posts#tag"
+  get "/tags/:tag" => "posts#tag"
 
-  match 'sitemap' => 'sitemap#index'
-  match 'posts.rss' => redirect('/posts.xml', permanent: true)
-  match 'posts' => 'posts#index'
+  get 'sitemap' => 'sitemap#index'
+  get 'posts.rss' => redirect('/posts.xml', permanent: true)
+  get 'posts' => 'posts#index'
 
-  match "/:id" => "posts#show"
+  get "/:id" => "posts#show"
 
   root :to => 'posts#index'
 end

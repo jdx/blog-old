@@ -20,7 +20,7 @@
     %h1= link_to @post, @post.permalink("#{request.host}:#{request.port}")
     %span.date= @post.post_date.to_s(:long)
     %h2.tags
-      - @post.tag_list[0..2].each do |tag|
+      - @post.tags[0..2].each do |tag|
         = link_to tag, "/tags/#{tag}"
     - if @post.image.url
       = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
@@ -39,13 +39,14 @@
           = "- " + post.post_date.to_s(:long)
   %hr
   .social
-    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-text' => @post.name, 'data-count' => "horizontal", 'data-via' => "dickeyxxx" } Tweet
     .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
     .gp
       %g:plusone{ size: 'medium' }
     .linkedin
       = javascript_include_tag "http://platform.linkedin.com/in.js"
       %script{ 'type' => "IN/Share", 'data-url' => @post.permalink, 'data-counter' => "right" }
+    .twitter
+      %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-text' => @post.name, 'data-count' => "horizontal", 'data-via' => "dickeyxxx" } Tweet
   - if @post.commenting == 'livefyre'
     = javascript_include_tag 'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'
     :javascript

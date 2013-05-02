@@ -1,26 +1,24 @@
 source 'http://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails'
+gem 'rails', '~> 4.0.0.rc.1'
 gem 'pg'
-gem 'exception_notification'
 gem 'unicorn'
 
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'httparty'
-gem 'squeel'
 
-gem 'activeadmin'
-gem 'acts-as-taggable-on'
-gem 'haml'
+gem 'haml-rails'
 gem 'redcarpet'
 gem 'coderay'
 gem 'htmlentities'
+gem 'newrelic_rpm'
+gem 'devise'
 
 group :development do
   gem 'awesome_print'
-  gem 'sqlite3'
   gem 'guard-spork'
   gem 'guard-cucumber'
   gem 'ruby_gntp'
@@ -29,7 +27,6 @@ group :development do
 end
 
 group :test do
-  gem 'sqlite3'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
@@ -38,14 +35,12 @@ group :test do
 end
 
 group :assets do
+  gem 'sprockets-rails'
+  gem 'sass-rails', github: 'rails/sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'turbo-sprockets-rails3'
 end
 
-group :production do
-  gem 'newrelic_rpm'
-end
-
-gem 'sass-rails'
 gem 'jquery-rails'
+
+gem 'turbolinks'

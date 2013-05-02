@@ -1,9 +1,7 @@
 class PostsController < ApplicationController
 
-  caches_action :index, :show, expires_in: 10.minutes, unless: :admin_user_signed_in?
-
   def index
-    @posts = Post.published
+    @posts = Post.published.order('post_date desc')
   end
 
   def tag
@@ -20,7 +18,7 @@ class PostsController < ApplicationController
       # happens because google hits the url /1346265310000
       return render file: "public/404.html", status: 404, layout: false
     end
-    @related_posts = @post.find_related_tags.published.limit(5)
+    @related_posts = @post.related
   end
 
   def redirect
