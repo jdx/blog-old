@@ -3,7 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '~> 4.0.0.rc.1'
 gem 'pg'
-gem 'unicorn'
+gem 'thin'
 
 gem 'fog'
 gem 'carrierwave'
