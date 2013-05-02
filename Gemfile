@@ -12,7 +12,6 @@ gem 'httparty'
 
 gem 'haml-rails'
 gem 'redcarpet'
-gem 'coderay'
 gem 'htmlentities'
 gem 'newrelic_rpm'
 gem 'devise'

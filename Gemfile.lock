@@ -246,7 +246,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   carrierwave
-  coderay
   coffee-rails
   cucumber-rails
   database_cleaner
