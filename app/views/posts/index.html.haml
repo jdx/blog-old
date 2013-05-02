@@ -6,17 +6,18 @@
     %h1= link_to @tag
     %hr
   - for post in @posts
-    %h1= link_to post, post.permalink("#{request.host}:#{request.port}")
-    %span.date= post.post_date.to_s(:long)
-    %h2.tags
-      - post.tags[0..2].each do |tag|
-        = link_to tag, "/tags/#{tag}"
-    - if post.image.url
-      = image_tag post.image.url(:banner), alt: nil, class: 'banner'
-    - split_body = markdown(post.body).split(/<\/p>/)
-    - if strip_tags(split_body.first).length < 120
-      = raw split_body.first + split_body.second
-    - else
-      = raw split_body.first
-    = link_to "Read more...", post.permalink("#{request.host}:#{request.port}"), class: 'readmore'
-    %hr
+    - cache post do
+      %h1= link_to post, post.permalink("#{request.host}:#{request.port}")
+      %span.date= post.post_date.to_s(:long)
+      %h2.tags
+        - post.tags[0..2].each do |tag|
+          = link_to tag, "/tags/#{tag}"
+      - if post.image.url
+        = image_tag post.image.url(:banner), alt: nil, class: 'banner'
+      - split_body = markdown(post.body).split(/<\/p>/)
+      - if strip_tags(split_body.first).length < 120
+        = raw split_body.first + split_body.second
+      - else
+        = raw split_body.first
+      = link_to "Read more...", post.permalink("#{request.host}:#{request.port}"), class: 'readmore'
+      %hr

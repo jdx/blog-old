@@ -16,6 +16,7 @@ gem 'htmlentities'
 gem 'newrelic_rpm'
 gem 'devise'
 gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
+gem 'dalli'
 
 
 group :development do

@@ -1,68 +1,69 @@
 - content_for :title do
-  %title dickey.xxx | #{@post.name}
+  - cache [ "post", "title", @post] do
+    %title dickey.xxx | #{@post.name}
 - content_for :head do
-  %meta{ property: "og:title", content: @post }
-  %meta{ property: "og:type", content: "article" }
-  %meta{ property: "og:image", content: @post.image.url }
-  %meta{ property: "og:url", content: @post.permalink }
-  - split_body = markdown(@post.body).split(/<\/p>/)
-  - if strip_tags(split_body.first).length < 120
-    %meta{ property: "og:description", content: strip_tags(split_body.first + split_body.second) }
-    %meta{ itemprop: "description", content: strip_tags(split_body.first + split_body.second) }
-  - else
-    %meta{ property: "og:description", content: strip_tags(split_body.first) }
-    %meta{ itemprop: "description", content: strip_tags(split_body.first) }
-  %meta{ itemprop: "name", content: @post }
-  %meta{ itemprop: "image", content: @post.image.url }
+  - cache [ "post", "head", @post ] do
+    %meta{ property: "og:title", content: @post }
+    %meta{ property: "og:type", content: "article" }
+    %meta{ property: "og:image", content: @post.image.url }
+    %meta{ property: "og:url", content: @post.permalink }
+    - split_body = markdown(@post.body).split(/<\/p>/)
+    - if strip_tags(split_body.first).length < 120
+      %meta{ property: "og:description", content: strip_tags(split_body.first + split_body.second) }
+      %meta{ itemprop: "description", content: strip_tags(split_body.first + split_body.second) }
+    - else
+      %meta{ property: "og:description", content: strip_tags(split_body.first) }
+      %meta{ itemprop: "description", content: strip_tags(split_body.first) }
+    %meta{ itemprop: "name", content: @post }
+    %meta{ itemprop: "image", content: @post.image.url }
 
-#body
-  %article
-    %h1= link_to @post, @post.permalink("#{request.host}:#{request.port}")
-    %span.date= @post.post_date.to_s(:long)
-    %h2.tags
-      - @post.tags[0..2].each do |tag|
-        = link_to tag, "/tags/#{tag}"
-    - if @post.image.url
-      = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
-    = markdown(@post.body)
-    %p - xxx
-  - if admin_user_signed_in?
+- cache [ "post", "body", @post ] do
+  #body
+    %article
+      %h1= link_to @post, @post.permalink("#{request.host}:#{request.port}")
+      %span.date= @post.post_date.to_s(:long)
+      %h2.tags
+        - @post.tags[0..2].each do |tag|
+          = link_to tag, "/tags/#{tag}"
+      - if @post.image.url
+        = image_tag @post.image.url(:banner), alt: nil, class: 'banner'
+      = markdown(@post.body)
+      %p - xxx
+    - if @related_posts.length != 0
+      %hr
+      %h2 Related Posts
+      %ul
+        - for post in @related_posts
+          - cache ['recent_post', post] do
+            %li
+              = link_to post, post.permalink("#{request.host}:#{request.port}")
+              = "- " + post.post_date.to_s(:long)
     %hr
-    = link_to "Edit", edit_admin_post_path(@post)
-  - if @related_posts.length != 0
-    %hr
-    %h2 Related Posts
-    %ul
-      - for post in @related_posts
-        %li
-          =link_to "#{post}", post.permalink("#{request.host}:#{request.port}")
-          = "- " + post.post_date.to_s(:long)
-  %hr
-  .social
-    .fb-like{ 'data-href' => @post.permalink, 'data-send' => "false", 'data-layout' => 'button_count', 'data-width' => "1", 'data-show-faces' => "false" }
-    .gp
-      %g:plusone{ size: 'medium' }
-    .linkedin
-      = javascript_include_tag "http://platform.linkedin.com/in.js"
-      %script{ 'type' => "IN/Share", 'data-url' => @post.permalink, 'data-counter' => "right" }
-    .twitter
-      %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => @post.permalink, 'data-text' => @post.name, 'data-count' => "horizontal", 'data-via' => "dickeyxxx" } Tweet
-  - if @post.commenting == 'livefyre'
-    = javascript_include_tag 'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'
-    :javascript
-      var fyre = LF({
-          site_id: 293384,
-          article_id: #{@post.id}
-      });
-  - else
-    #disqus_thread
-    :javascript
-        var disqus_shortname = 'jeffdickey';
-        var disqus_identifier = 'post:#{@post.id}';
-        var disqus_url = '#{@post.permalink}';
-        var disqus_developer = #{Rails.env.development?};
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+    .social
+      .fb-like{ data: { href: @post.permalink, send: "false", layout: 'button_count', width: "1", show_faces: "false" } }
+      .gp
+        %g:plusone{ size: 'medium' }
+      .linkedin
+        = javascript_include_tag "http://platform.linkedin.com/in.js"
+        %script{ 'type' => "IN/Share", data: { url: @post.permalink, counter: "right" } }
+      .twitter
+        %a.twitter-share-button{ 'href' => "https://twitter.com/share", data: { url: @post.permalink, text: @post.name, count: "horizontal", via: "dickeyxxx" } } Tweet
+    - if @post.commenting == 'livefyre'
+      = javascript_include_tag 'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'
+      :javascript
+        var fyre = LF({
+            site_id: 293384,
+            article_id: #{@post.id}
+        });
+    - else
+      #disqus_thread
+      :javascript
+          var disqus_shortname = 'jeffdickey';
+          var disqus_identifier = 'post:#{@post.id}';
+          var disqus_url = '#{@post.permalink}';
+          var disqus_developer = #{Rails.env.development?};
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
