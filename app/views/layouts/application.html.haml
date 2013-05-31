@@ -56,6 +56,7 @@
           %li= link_to "LinkedIn", 'https://linkedin.com/in/dickeyxxx'
           %li= link_to "GitHub", 'https://github.com/dickeyxxx'
           %li= link_to "dotplus", 'http://dotplus.io'
+          %li{ style: 'display:none;' }= link_to "+", 'https://plus.google.com/110137671458974548647?rel=author'
           %li= link_to_unless_current "Admin", '/admin', data: { admin: true }
           %li= link_to_unless_current "Add New Post", '/admin/posts/new', data: { admin: true }
       %span.email jeff@dickey.xxx
