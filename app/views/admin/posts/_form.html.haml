@@ -1,9 +1,18 @@
 = simple_form_for [:admin, @post] do |f|
   = f.input :name
-  = f.input :body
   = f.input :slug
   = f.input :image
   = f.input :tags
   = f.input :post_date
   = f.input :draft
+  = f.input :body
+  #epiceditor
   = f.submit
+
+:javascript
+  $(document).ready(function() {
+    var editor = new EpicEditor({
+      basePath: '/epiceditor/',
+      textarea: 'post_body',
+    }).load();
+  });

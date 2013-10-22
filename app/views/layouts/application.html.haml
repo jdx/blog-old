@@ -63,7 +63,7 @@
       %a{ href: "https://twitter.com/dickeyxxx",  class: "twitter-follow-button", data: { 'show-count' => "false", 'lang' => "en" } }
       = javascript_include_tag "//platform.twitter.com/widgets.js"
     #content
-      = yield
+      = content_for?(:content) ? yield(:content) : yield
 
     :javascript
       // GA

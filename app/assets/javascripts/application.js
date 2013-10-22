@@ -10,3 +10,4 @@
 //= require facebook
 //= require google
 //= require admin
+//= require epiceditor
