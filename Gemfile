@@ -15,9 +15,9 @@ gem 'redcarpet'
 gem 'htmlentities'
 gem 'newrelic_rpm'
 gem 'devise'
-gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
 gem 'dalli'
 gem 'memcachier'
+gem 'simple_form'
 
 
 group :development do
@@ -27,6 +27,7 @@ group :development do
   gem 'ruby_gntp'
   gem 'taps'
   gem 'thin'
+  gem 'annotate'
 end
 
 group :test do
@@ -37,12 +38,14 @@ group :test do
   gem 'launchy'
 end
 
-group :assets do
-  gem 'sprockets-rails'
-  gem 'sass-rails', github: 'rails/sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
+group :production do
+  gem 'rails_12factor'
 end
+
+gem 'sprockets-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 

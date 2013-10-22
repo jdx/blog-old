@@ -17,6 +17,9 @@
     %meta{ itemprop: "name", content: @post }
     %meta{ itemprop: "image", content: @post.image.url }
 
+- if admin_user_signed_in?
+  %p= link_to "Edit", admin_post_path(@post)
+
 - cache [ "post", "body", @post ] do
   #body
     %article

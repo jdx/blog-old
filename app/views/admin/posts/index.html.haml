@@ -1,0 +1,7 @@
+%h1 Posts
+
+%p= link_to "New Post", new_admin_post_path
+
+%ul#admin-posts
+  - @posts.each do |post|
+    %li= link_to post.name, [:admin, post], class: "#{"draft" if post.draft}"

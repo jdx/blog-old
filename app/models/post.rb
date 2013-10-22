@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  body       :text
+#  created_at :datetime
+#  updated_at :datetime
+#  draft      :boolean
+#  post_date  :date
+#  slug       :string(255)
+#  image      :string(255)
+#  commenting :string(255)      default("disqus"), not null
+#  tags       :string(255)      not null
+#
+
 class Post < ActiveRecord::Base
   include ActionView::Helpers
 
@@ -5,6 +22,7 @@ class Post < ActiveRecord::Base
   before_update :create_slug
 
   validates :name, presence: true, uniqueness: true
+  validates :slug, presence: true, uniqueness: true
   validates :body, presence: true
   validates :post_date, presence: true
   validates :commenting, presence: true

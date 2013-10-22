@@ -1,6 +1,11 @@
 Blog::Application.routes.draw do
   devise_for :admin_users
 
+  namespace :admin do
+    root to: 'base#index'
+    resources :posts
+  end
+
   resources :projects
 
   get "/blog/:year/:month/:day/:id" => 'posts#redirect', :constraints => { :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/ }
@@ -15,7 +20,7 @@ Blog::Application.routes.draw do
   get 'posts.rss' => redirect('/posts.xml', permanent: true)
   get 'posts' => 'posts#index'
 
-  get "/:id" => "posts#show"
+  get "/:id" => "posts#show", as: :post
 
   root :to => 'posts#index'
 end
