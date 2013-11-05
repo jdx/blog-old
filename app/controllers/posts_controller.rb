@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     begin
       @post = Post.find_by_slug(params[:id])
       @post ||= Post.find(params[:id])
+      redirect_to @post.url if @post.url
     rescue ActiveRecord::StatementInvalid
       # happens because google hits the url /1346265310000
       return render file: "public/404.html", status: 404, layout: false

@@ -37,6 +37,6 @@ class Admin::PostsController < Admin::BaseController
   private
 
   def post_params
-    params.require(:post).permit(:name, :slug, :body, :image, :tags, :post_date, :draft)
+    params.require(:post).permit(:name, :slug, :body, :image, :tags, :post_date, :draft, :link)
   end
 end

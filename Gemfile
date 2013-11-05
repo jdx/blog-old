@@ -18,6 +18,7 @@ gem 'devise'
 gem 'dalli'
 gem 'memcachier'
 gem 'simple_form'
+gem 'embedder'
 
 
 group :development do
@@ -28,6 +29,9 @@ group :development do
   gem 'taps'
   gem 'thin'
   gem 'annotate'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

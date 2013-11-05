@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130501220928) do
+ActiveRecord::Schema.define(version: 20131105030907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,9 @@ ActiveRecord::Schema.define(version: 20130501220928) do
     t.date     "post_date"
     t.string   "slug"
     t.string   "image"
-    t.string   "commenting", default: "disqus", null: false
-    t.string   "tags",                          null: false, array: true
+    t.string   "commenting", default: "disqus",                                                   null: false
+    t.string   "tags",       default: "(ARRAY[]::character varying[])::character varying(255)[]", null: false, array: true
+    t.string   "url"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree

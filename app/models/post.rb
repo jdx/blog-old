@@ -18,8 +18,7 @@
 class Post < ActiveRecord::Base
   include ActionView::Helpers
 
-  before_create :create_slug
-  before_update :create_slug
+  before_validation :create_slug
 
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
@@ -55,6 +54,15 @@ class Post < ActiveRecord::Base
 
   def related
     Post.published.where('tags && ARRAY[?]::varchar(255)[]', tags).where.not(id: id).limit(5).order('post_date desc')
+  end
+
+  def link; end
+  def link=(link)
+    info = Embedder.parse(link)
+    self.url = info["url"]
+    self.remote_image_url = info["thumbnail_url"]
+    self.body = info["description"]
+    self.name = info["title"]
   end
 
   private
