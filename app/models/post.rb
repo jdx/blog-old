@@ -58,11 +58,13 @@ class Post < ActiveRecord::Base
 
   def link; end
   def link=(link)
-    info = Embedder.parse(link)
-    self.url = info["url"]
-    self.remote_image_url = info["thumbnail_url"]
-    self.body = info["description"]
-    self.name = info["title"]
+    if link.present?
+      info = Embedder.parse(link)
+      self.url = info["url"]
+      self.remote_image_url = info["thumbnail_url"]
+      self.body = info["description"]
+      self.name = info["title"]
+    end
   end
 
   private
