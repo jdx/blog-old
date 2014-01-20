@@ -40,9 +40,8 @@ Blog::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
 
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
-
+  memcached_config = YAML.load_file(Rails.root.join('config/memcached.yml'))["production"]
+  config.cache_store = :dalli_store, *memcached_config
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
